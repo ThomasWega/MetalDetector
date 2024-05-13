@@ -11,4 +11,4 @@ permissions:
     description: The permission needed to repair broken detectors
   wegadetectors.admin.detectors:
     default: op
-    description: Metal detector plugin admin permission
+    description: Admin permission

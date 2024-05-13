@@ -18,7 +18,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import static me.wega.detectors.WegaMetalDetectors.instance;
+import static me.wega.detectors.WegaDetectors.instance;
 import static me.wega.toolkit.WegaToolkit.adventure;
 
 public final class DetectorHackListener implements Listener {
@@ -51,11 +51,11 @@ public final class DetectorHackListener implements Listener {
             miniGame.setOnEnd(bool -> {
                 player.closeInventory();
                 if (bool) {
-                    adventure.player(player).sendMessage((ColorUtils.color(ConfigValue.Messages.METAL_DETECTOR_BREAK_SUCCESS.getValue())));
+                    adventure.player(player).sendMessage((ColorUtils.color(ConfigValue.Messages.DETECTOR_BREAK_SUCCESS.getValue())));
                     for (Block detector : BlockUtils.getConnected(event.getClickedBlock(), detectorManager::isWorkingDetector))
                         detectorManager.add(detector, false);
                 } else
-                    adventure.player(player).sendMessage((ColorUtils.color(ConfigValue.Messages.METAL_DETECTOR_BREAK_FAIL.getValue())));
+                    adventure.player(player).sendMessage((ColorUtils.color(ConfigValue.Messages.DETECTOR_BREAK_FAIL.getValue())));
             });
             miniGame.show(player);
         });

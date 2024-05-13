@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static me.wega.detectors.WegaMetalDetectors.instance;
+import static me.wega.detectors.WegaDetectors.instance;
 
 
 public class DetectorScanItemTask extends PlayerTask {

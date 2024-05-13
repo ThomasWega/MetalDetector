@@ -1,1 +1,1 @@
-rootProject.name = "MetalDetectors"
+rootProject.name = "WegaDetectors"

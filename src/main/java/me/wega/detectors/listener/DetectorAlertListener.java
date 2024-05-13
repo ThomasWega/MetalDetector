@@ -18,7 +18,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
 
 import java.util.*;
 
-import static me.wega.detectors.WegaMetalDetectors.instance;
+import static me.wega.detectors.WegaDetectors.instance;
 
 public final class DetectorAlertListener implements Listener {
     private static final HashSet<UUID> COOLDOWNS = new HashSet<>();

@@ -4,7 +4,7 @@ import me.wega.shadow.IF.gui.GuiItem;
 import me.wega.shadow.IF.gui.type.ChestGui;
 import me.wega.shadow.IF.pane.Pane;
 import me.wega.shadow.IF.pane.StaticPane;
-import me.wega.detectors.WegaMetalDetectors;
+import me.wega.detectors.WegaDetectors;
 import me.wega.toolkit.builder.ItemBuilder;
 import me.wega.toolkit.utils.SchedulerUtils;
 import lombok.Setter;
@@ -77,11 +77,11 @@ public class HackingMiniGame extends ChestGui {
     }
 
     private int getRandomX() {
-        return WegaMetalDetectors.RANDOM.nextInt(0, 8);
+        return WegaDetectors.RANDOM.nextInt(0, 8);
     }
 
     private int getRandomY() {
-        return WegaMetalDetectors.RANDOM.nextInt(0, 5);
+        return WegaDetectors.RANDOM.nextInt(0, 5);
     }
 
     private int getItemCount() {
@@ -97,12 +97,12 @@ public class HackingMiniGame extends ChestGui {
         if (minLength <= 0 || maxLength <= 0 || minLength > maxLength)
             throw new IllegalArgumentException("Invalid input parameters");
 
-        int length = minLength + WegaMetalDetectors.RANDOM.nextInt(maxLength - minLength + 1);
+        int length = minLength + WegaDetectors.RANDOM.nextInt(maxLength - minLength + 1);
 
         StringBuilder randomString = new StringBuilder(length);
 
         for (int i = 0; i < length; i++) {
-            int randomIndex = WegaMetalDetectors.RANDOM.nextInt(CHARACTER_SET.length());
+            int randomIndex = WegaDetectors.RANDOM.nextInt(CHARACTER_SET.length());
             char randomChar = CHARACTER_SET.charAt(randomIndex);
             randomString.append(randomChar);
         }

@@ -17,14 +17,14 @@ import org.bukkit.entity.Player;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static me.wega.detectors.WegaMetalDetectors.instance;
+import static me.wega.detectors.WegaDetectors.instance;
 import static me.wega.toolkit.WegaToolkit.adventure;
 
-public final class MetalDetectorCommand {
+public final class DetectorsCommand {
     private final DetectorManager detectorManager = instance.getDetectorManager();
     private final BlockedMessagesManager blockedMessagesManager = instance.getBlockedMessagesManager();
 
-    public MetalDetectorCommand() {
+    public DetectorsCommand() {
         this.register();
     }
 
@@ -60,16 +60,16 @@ public final class MetalDetectorCommand {
     private void turnOn(Player player, CommandArguments args) {
         Block targetBlock = player.getTargetBlock(null, 4);
         if (!detectorManager.has(targetBlock))
-            adventure.player(player).sendMessage(ColorUtils.color(ConfigValue.Messages.BLOCK_IS_NOT_METAL_DETECTOR.getValue()));
+            adventure.player(player).sendMessage(ColorUtils.color(ConfigValue.Messages.BLOCK_IS_NOT_DETECTOR.getValue()));
         else if (detectorManager.isWorkingDetector(targetBlock))
-            adventure.player(player).sendMessage(ColorUtils.color(ConfigValue.Messages.REPAIRING_WORKING_METAL_DETECTOR.getValue()));
+            adventure.player(player).sendMessage(ColorUtils.color(ConfigValue.Messages.REPAIRING_WORKING_DETECTOR.getValue()));
         else {
             Set<Block> blocks = BlockUtils.getConnected(player.getTargetBlock(null, 5), (block) -> !detectorManager.isWorkingDetector(block));
             Map<Block, Boolean> blockMap = blocks.stream()
                     .collect(Collectors.toMap(block -> block, block -> true));
 
             detectorManager.addAll(blockMap);
-            adventure.player(player).sendMessage(ColorUtils.color(ConfigValue.Messages.METAL_DETECTOR_REPAIR.getValue()));
+            adventure.player(player).sendMessage(ColorUtils.color(ConfigValue.Messages.DETECTOR_REPAIR.getValue()));
         }
     }
 
@@ -86,7 +86,7 @@ public final class MetalDetectorCommand {
             target.getInventory().addItem(ConfigValue.Settings.DETECTOR_ITEM);
 
         adventure.player(player).sendMessage(ColorUtils.color(
-                ConfigValue.Messages.METAL_DETECTOR_GIVE_MESSAGE.getValue(),
+                ConfigValue.Messages.DETECTOR_GIVE_MESSAGE.getValue(),
                 Placeholder.parsed("amount", String.valueOf(amount)),
                 Placeholder.parsed("player", target.getName())
         ));

@@ -2,7 +2,7 @@ custom-items:
   detector:
     material: IRON_BLOCK
     # base64: value # Textured skulls. Will ignore material. Remove section to disable
-    display: "<gold>Metal Detector"
+    display: "<gold>Detector"
     lore: # [] for empty
       - "<gold>A block that detects items"
     customModel: 1

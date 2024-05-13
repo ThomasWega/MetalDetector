@@ -1,7 +1,7 @@
 package me.wega.detectors.utils;
 
 import me.wega.detectors.manager.BlockedMessagesManager;
-import me.wega.detectors.WegaMetalDetectors;
+import me.wega.detectors.WegaDetectors;
 import me.wega.detectors.manager.WhitelistManager;
 import me.wega.detectors.config.ConfigValue;
 import me.wega.toolkit.WegaToolkit;
@@ -15,8 +15,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Arrays;
 
 public class DetectorUtils {
-    private static final WhitelistManager WHITELIST_MANAGER = WegaMetalDetectors.instance.getWhitelistManager();
-    private static final BlockedMessagesManager BLOCKED_MESSAGES_MANAGER = WegaMetalDetectors.instance.getBlockedMessagesManager();
+    private static final WhitelistManager WHITELIST_MANAGER = WegaDetectors.instance.getWhitelistManager();
+    private static final BlockedMessagesManager BLOCKED_MESSAGES_MANAGER = WegaDetectors.instance.getBlockedMessagesManager();
 
     public static void activate(@NotNull Player player, @NotNull Block detector) {
         activateItem(player, detector, player.getInventory().getContents());

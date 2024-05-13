@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "me.wega"
-version = "0.1-SNAPSHOT"
+version = "0.1.0b"
 description = "Spigot plugin which detects selected items in inventory or ground"
 java.sourceCompatibility = JavaVersion.VERSION_17
 

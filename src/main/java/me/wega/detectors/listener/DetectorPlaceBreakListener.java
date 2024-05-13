@@ -1,7 +1,7 @@
 package me.wega.detectors.listener;
 
 import me.wega.detectors.manager.DetectorManager;
-import me.wega.detectors.WegaMetalDetectors;
+import me.wega.detectors.WegaDetectors;
 import me.wega.detectors.utils.DetectorKey;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -11,7 +11,7 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
 
 public final class DetectorPlaceBreakListener implements Listener {
-    private final DetectorManager detectorManager = WegaMetalDetectors.instance.getDetectorManager();
+    private final DetectorManager detectorManager = WegaDetectors.instance.getDetectorManager();
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onPlace(BlockPlaceEvent event) {

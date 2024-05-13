@@ -2,7 +2,7 @@ package me.wega.detectors;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import me.wega.detectors.command.MetalDetectorCommand;
+import me.wega.detectors.command.DetectorsCommand;
 import me.wega.detectors.listener.DetectorPlaceBreakListener;
 import me.wega.detectors.listener.DetectorAlertListener;
 import me.wega.detectors.listener.DetectorHackListener;
@@ -23,9 +23,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.Random;
 
 @Getter
-public final class WegaMetalDetectors extends JavaPlugin {
+public final class WegaDetectors extends JavaPlugin {
     public static final Random RANDOM = new Random();
-    public static WegaMetalDetectors instance;
+    public static WegaDetectors instance;
     private WhitelistManager whitelistManager;
     private BlockedMessagesManager blockedMessagesManager;
     private DetectorManager detectorManager;
@@ -41,7 +41,7 @@ public final class WegaMetalDetectors extends JavaPlugin {
     public void onEnable() {
         instance = this;
 
-        this.dataFile = new ConfigHandler(WegaMetalDetectors.instance, "", "data.json");
+        this.dataFile = new ConfigHandler(WegaDetectors.instance, "", "data.json");
         dataFile.scheduleAsyncBackup(5 * 60 * 20, this::saveData);
 
         this.initializeManagers();
@@ -69,7 +69,7 @@ public final class WegaMetalDetectors extends JavaPlugin {
     }
 
     private void registerCommands() {
-        new MetalDetectorCommand();
+        new DetectorsCommand();
     }
 
     private void registerListeners() {

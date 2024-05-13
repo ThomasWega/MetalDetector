@@ -1,6 +1,6 @@
 package me.wega.detectors.utils;
 
-import me.wega.detectors.WegaMetalDetectors;
+import me.wega.detectors.WegaDetectors;
 import me.wega.shadow.morepersistentdatatypes.DataType;
 import me.wega.toolkit.pdc.key.IPDCKey;
 import lombok.Getter;
@@ -22,7 +22,7 @@ public enum DetectorKey implements IPDCKey {
 
     @Override
     public @NotNull JavaPlugin getInstance() {
-        return WegaMetalDetectors.instance;
+        return WegaDetectors.instance;
     }
 
 }

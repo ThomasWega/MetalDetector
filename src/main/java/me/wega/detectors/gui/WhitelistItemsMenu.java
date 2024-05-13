@@ -4,7 +4,7 @@ import me.wega.shadow.IF.gui.GuiItem;
 import me.wega.shadow.IF.gui.type.ChestGui;
 import me.wega.shadow.IF.pane.PaginatedPane;
 import me.wega.shadow.IF.pane.Pane;
-import me.wega.detectors.WegaMetalDetectors;
+import me.wega.detectors.WegaDetectors;
 import me.wega.detectors.manager.WhitelistManager;
 import me.wega.toolkit.gui.pane.PageNavPane;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 // FIXME fix menu
 public class WhitelistItemsMenu extends ChestGui {
-    private static final WhitelistManager WHITELIST_MANAGER = WegaMetalDetectors.instance.getWhitelistManager();
+    private static final WhitelistManager WHITELIST_MANAGER = WegaDetectors.instance.getWhitelistManager();
     private final PaginatedPane pagesPane = new PaginatedPane(0, 0, 9, 5, Pane.Priority.HIGH);
     private final List<ItemStack> items = WHITELIST_MANAGER.getSet()
             .stream()
@@ -28,15 +28,17 @@ public class WhitelistItemsMenu extends ChestGui {
     }
 
     public WhitelistItemsMenu(int page) {
-        super(6, "MetalDetector Whitelist");
+        super(6, "Detectors Whitelist");
         this.initialize(page);
     }
 
     private void initialize(int page) {
         this.pagesPane.populateWithGuiItems(this.items.stream()
                 .map(item -> {
-                    ItemStack itemClone = item.clone();
+                    final ItemStack itemClone = item.clone();
                             return new GuiItem(itemClone, event -> {
+                                System.out.println("REMOVING ITEM = " + itemClone);
+                                System.out.println("LIST = " + WHITELIST_MANAGER.getSet());
                                 WHITELIST_MANAGER.remove(itemClone);
                                 new WhitelistItemsMenu(this.pagesPane.getPage()).show(event.getWhoClicked());
                             });
@@ -60,8 +62,8 @@ public class WhitelistItemsMenu extends ChestGui {
         if (WHITELIST_MANAGER.has(current)) return;
 
         System.out.println("ADDING ITEM = " + current);
+        System.out.println("LIST = " + WHITELIST_MANAGER.getSet());
         WHITELIST_MANAGER.add(current.clone());
-        System.out.println(WHITELIST_MANAGER.getSet());
         new WhitelistItemsMenu().show(event.getWhoClicked());
     }
 

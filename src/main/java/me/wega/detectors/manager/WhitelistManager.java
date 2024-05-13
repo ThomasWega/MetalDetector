@@ -11,7 +11,7 @@ import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.List;
 
-import static me.wega.detectors.WegaMetalDetectors.instance;
+import static me.wega.detectors.WegaDetectors.instance;
 
 public class WhitelistManager extends DataManager<ItemStack> {
     private final Gson gson = instance.getGson();

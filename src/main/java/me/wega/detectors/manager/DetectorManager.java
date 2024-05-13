@@ -11,7 +11,7 @@ import org.jetbrains.annotations.Nullable;
 import java.lang.reflect.Type;
 import java.util.Map;
 
-import static me.wega.detectors.WegaMetalDetectors.instance;
+import static me.wega.detectors.WegaDetectors.instance;
 
 public final class DetectorManager extends DataMapManager<Block, Boolean> {
     private final Type type = new TypeToken<Map<Block, Boolean>>(){}.getType();

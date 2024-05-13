@@ -9,7 +9,7 @@ import java.lang.reflect.Type;
 import java.util.List;
 import java.util.UUID;
 
-import static me.wega.detectors.WegaMetalDetectors.instance;
+import static me.wega.detectors.WegaDetectors.instance;
 
 public final class BlockedMessagesManager extends DataManager<UUID> {
     private final Gson gson = instance.getGson();
