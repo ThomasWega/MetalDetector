@@ -1,0 +1,15 @@
+custom-items:
+  detector:
+    material: IRON_BLOCK
+    # base64: value # Textured skulls. Will ignore material. Remove section to disable
+    display: "<gold>Metal Detector"
+    lore: # [] for empty
+      - "<gold>A block that detects items"
+    customModel: 1
+  hack-tool:
+    material: DIAMOND_PICKAXE
+    display: "<gold>Hecker Tool"
+    uses: 5
+    lore:
+      - "<gold>An item that breaks detectors"
+    customModel: 0

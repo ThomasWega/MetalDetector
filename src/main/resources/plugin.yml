@@ -1,0 +1,14 @@
+name: WegaDetectors
+version: '${version}'
+author: Wega
+main: me.wega.detectors.WegaDetectors
+api-version: '1.17'
+depend:
+  - WegaToolkit
+permissions:
+  wegadetectors.detectors.turnon:
+    default: op
+    description: The permission needed to repair broken detectors
+  wegadetectors.admin.detectors:
+    default: op
+    description: Metal detector plugin admin permission
